@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import "./post-list-item.css";
 
 export default class PostListItem extends Component {
   constructor(props) {
@@ -34,8 +35,6 @@ export default class PostListItem extends Component {
     if (like) {
         classNames += " like";
     }
-
-
     return (
       <div className={classNames}>
         <span className="app-list-item-label"
