@@ -28,7 +28,8 @@
     font-size: 16px;
     color: red;
     transition: 0.3s all;
-    background-color: #d8d7d7;
+    transform: translateX(30px);
+    opacity: 0;
 }
 
 .app-list-item-label {
