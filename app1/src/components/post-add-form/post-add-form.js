@@ -3,7 +3,7 @@ import "./post-add-form.css";
 
 const PostAddForm = () => {
     return(
-        <form className="bottom-panel-input d-flex">
+        <form className="bottom-panel bottom-panel-input d-flex">
             <input
             type="text"
             placeholder="What are you thinking about now"
