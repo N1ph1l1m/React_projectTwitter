@@ -11,7 +11,7 @@ const PostAddForm = ({onAdd}) => {
                <button 
                type="submit"
                className="btn btn-outline-secondary"
-               onClick={() => onAdd('hello')}>
+               onClick={() => onAdd('Text')}>
                Add post </button>
         </div>
      

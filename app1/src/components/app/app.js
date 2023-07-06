@@ -19,15 +19,16 @@ export default class App extends Component {
     super(props);
     this.state = {
       data: [
-        { label: " Going to learn React", important: true, id: "a1" },
-        { label: "Going to home", important: false, id: "a2" },
-        { label: "We work", important: true, id: "a3" },
-        { label: "Batman - who is", important: false, id: "a4" },
-        { label: "Down or up", important: true, id: "a5" },
+        { label: " Going to learn React", important: true, id: "1" },
+        { label: "Going to home", important: false, id: "2" },
+        { label: "We work", important: true, id: "3" },
+        { label: "Batman - who is", important: false, id: "4" },
+        { label: "Down or up", important: true, id: "5" },
       ],
     };
     this.deleteItem = this.deleteItem.bind(this);
     this.addItem = this.addItem.bind(this);
+    this.maxId = 6;
   }
   deleteItem(id) {
     this.setState(({ data }) => {
@@ -39,7 +40,17 @@ export default class App extends Component {
     });
   }
   addItem(body){
-   console.log(body);
+      const newItem = {
+         label:body,
+         important:false,
+         id:this.maxId++
+      }
+      this.setState(({data}) =>{
+         const newArr=[...data,newItem];
+         return{
+            data: newArr
+         }
+      })
   }
   render() {
     return (
