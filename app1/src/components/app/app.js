@@ -27,6 +27,7 @@ export default class App extends Component {
       ],
     };
     this.deleteItem = this.deleteItem.bind(this);
+    this.addItem = this.addItem.bind(this);
   }
   deleteItem(id) {
     this.setState(({ data }) => {
@@ -37,6 +38,9 @@ export default class App extends Component {
       };
     });
   }
+  addItem(body){
+   console.log(body);
+  }
   render() {
     return (
       <AppBlock>
@@ -46,7 +50,9 @@ export default class App extends Component {
           <PostStatusFilter />
         </div>
         <PostList posts={this.state.data} onDelete={this.deleteItem} />
-        <PostAddForm />
+        <PostAddForm 
+         onAdd={this.addItem}
+        />
       </AppBlock>
     );
   }
