@@ -88,7 +88,6 @@ export default class App extends Component {
     const allPosts = data.length;
     return (
       <AppBlock>
-    
         <AppHeader 
           liked = {liked}
           allPosts ={allPosts}
