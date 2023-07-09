@@ -56,7 +56,17 @@ export default class App extends Component {
   }
 
   onToggleImportant(id){
-    console.log(`Impot = ${id}`);
+    this.setState(({data})=>{
+      const index = data.findIndex(elem => elem.id === id);
+
+      const old = data[index];
+      const newItem = {...old, important: !old.important}
+
+      const newLikeArr = [...data.slice(0, index), newItem, ...data.slice(index + 1)];
+      return{
+        data:newLikeArr
+      }
+    })
   }
   onToggleLiked(id){
     this.setState(({data})=>{
