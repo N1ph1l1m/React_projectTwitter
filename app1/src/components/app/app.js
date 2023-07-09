@@ -28,6 +28,8 @@ export default class App extends Component {
     };
     this.deleteItem = this.deleteItem.bind(this);
     this.addItem = this.addItem.bind(this);
+    this.onToggleImportant = this.onToggleImportant.bind(this);
+    this.onToggleLiked = this.onToggleLiked.bind(this);
     this.maxId = 6;
   }
   deleteItem(id) {
@@ -52,6 +54,14 @@ export default class App extends Component {
          }
       })
   }
+
+  onToggleImportant(id){
+    console.log(`Impot = ${id}`);
+  }
+  onToggleLiked(id){
+    console.log(`Impot = ${id}`);
+  }
+
   render() {
     return (
       <AppBlock>
@@ -60,7 +70,12 @@ export default class App extends Component {
           <SearchPanel />
           <PostStatusFilter />
         </div>
-        <PostList posts={this.state.data} onDelete={this.deleteItem} />
+        <PostList 
+          posts = {this.state.data}
+          onDelete = {this.deleteItem} 
+          onToggleImportant= {this.onToggleImportant}
+          onToggleLiked = {this.onToggleLiked}
+        />
         <PostAddForm 
          onAdd={this.addItem}
         />
