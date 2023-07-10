@@ -29,9 +29,6 @@ export default class PostStatusFilter extends  Component{
         return (
             <div className="btn-group">
                 {buttons}
-                {/* <Button outline color="info"  type="button" className="btn ">All</Button>
-                <Button active color="danger" outline size="lg" type="button" className="btn btn-secondary">Like it</Button>
-     */}
             </div>
         )
     }

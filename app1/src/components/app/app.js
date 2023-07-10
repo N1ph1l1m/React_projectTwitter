@@ -19,13 +19,13 @@ export default class App extends Component {
     super(props);
     this.state = {
       data: [
-        { label: " Going to learn React", important: true, id: "1", like: false},
-        { label: "Going to home", important: false, id: "2", like: false },
-        { label: "We work", important: true, id: "3" },
-        { label: "Batman - who is", important: false, id: "4", like: false },
-        { label: "Down or up", important: true, id: "5", like: false },
+        // { label: " Going to learn React", important: true, id: "1", like: false},
+        // { label: "Going to home", important: false, id: "2", like: false },
+        // { label: "We work", important: true, id: "3" },
+        // { label: "Batman - who is", important: false, id: "4", like: false },
+        // { label: "Down or up", important: true, id: "5", like: false },
       ],
-      term:" ",
+      term:"",
       filter:'all'
     };
     this.deleteItem = this.deleteItem.bind(this);
@@ -34,7 +34,7 @@ export default class App extends Component {
     this.onToggleLiked = this.onToggleLiked.bind(this);
     this.onUpdateSearch = this.onUpdateSearch.bind(this);
     this.onFilterSelect = this.onFilterSelect.bind(this);
-    this.maxId = 1;
+    this.maxId = 0;
   }
   deleteItem(id) {
     this.setState(({ data }) => {
