@@ -22,6 +22,7 @@ export default class PostAddForm extends Component{
             text: ''
         })
     }
+ 
     render(){
         return(
             <form 
@@ -38,6 +39,7 @@ export default class PostAddForm extends Component{
                     type="submit"
                     className="btn btn-outline-secondary"
                     Add post >
+                    Post
                 </button>
             </form>
          

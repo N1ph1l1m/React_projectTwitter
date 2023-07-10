@@ -25,12 +25,14 @@ export default class App extends Component {
         { label: "Batman - who is", important: false, id: "4", like: false },
         { label: "Down or up", important: true, id: "5", like: false },
       ],
+      term:""
     };
     this.deleteItem = this.deleteItem.bind(this);
     this.addItem = this.addItem.bind(this);
     this.onToggleImportant = this.onToggleImportant.bind(this);
     this.onToggleLiked = this.onToggleLiked.bind(this);
-    this.maxId = 6;
+    this.onUpdateSearch = this.onUpdateSearch.bind(this);
+    this.maxId = 1;
   }
   deleteItem(id) {
     this.setState(({ data }) => {
@@ -81,11 +83,25 @@ export default class App extends Component {
       }
     })
   }
-
+  searcPost(items, term){
+    if(term.length ===0){
+        return items
+    }
+   return items.filter((item)=>{
+        return item.label.indexOf(term) > -1
+    });
+   
+}
+onUpdateSearch(term){
+  this.setState({term})
+}
   render() {
-    const {data} = this.state; 
+    const {data,term} = this.state; 
     const liked = data.filter(item => item.like).length;
     const allPosts = data.length;
+
+    const visiblePosts = this.searcPost(data,term);
+
     return (
       <AppBlock>
         <AppHeader 
@@ -93,11 +109,12 @@ export default class App extends Component {
           allPosts ={allPosts}
         />
         <div className="searc-panel d-flex">
-          <SearchPanel />
+          <SearchPanel 
+            onUpdateSearch={this.onUpdateSearch}/>
           <PostStatusFilter />
         </div>
         <PostList 
-          posts = {this.state.data}
+          posts = {visiblePosts}
           onDelete = {this.deleteItem} 
           onToggleImportant= {this.onToggleImportant}
           onToggleLiked = {this.onToggleLiked}
