@@ -25,7 +25,8 @@ export default class App extends Component {
         { label: "Batman - who is", important: false, id: "4", like: false },
         { label: "Down or up", important: true, id: "5", like: false },
       ],
-      term:""
+      term:"",
+      filter:''
     };
     this.deleteItem = this.deleteItem.bind(this);
     this.addItem = this.addItem.bind(this);
@@ -95,12 +96,20 @@ export default class App extends Component {
 onUpdateSearch(term){
   this.setState({term})
 }
+filterPost(items,filter){
+  if(filter === 'like'){
+    return items.filter(item => item.like)
+  }else{
+    return items
+  }
+}
+
   render() {
-    const {data,term} = this.state; 
+    const {data,term,filter} = this.state; 
     const liked = data.filter(item => item.like).length;
     const allPosts = data.length;
 
-    const visiblePosts = this.searcPost(data,term);
+    const visiblePosts = this.filterPost(this.searcPost(data,term), filter);
 
     return (
       <AppBlock>
