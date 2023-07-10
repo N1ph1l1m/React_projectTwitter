@@ -25,14 +25,15 @@ export default class App extends Component {
         { label: "Batman - who is", important: false, id: "4", like: false },
         { label: "Down or up", important: true, id: "5", like: false },
       ],
-      term:"",
-      filter:''
+      term:" ",
+      filter:'all'
     };
     this.deleteItem = this.deleteItem.bind(this);
     this.addItem = this.addItem.bind(this);
     this.onToggleImportant = this.onToggleImportant.bind(this);
     this.onToggleLiked = this.onToggleLiked.bind(this);
     this.onUpdateSearch = this.onUpdateSearch.bind(this);
+    this.onFilterSelect = this.onFilterSelect.bind(this);
     this.maxId = 1;
   }
   deleteItem(id) {
@@ -104,6 +105,10 @@ filterPost(items,filter){
   }
 }
 
+onFilterSelect(filter){
+  this.setState({filter})
+}
+
   render() {
     const {data,term,filter} = this.state; 
     const liked = data.filter(item => item.like).length;
@@ -120,7 +125,8 @@ filterPost(items,filter){
         <div className="searc-panel d-flex">
           <SearchPanel 
             onUpdateSearch={this.onUpdateSearch}/>
-          <PostStatusFilter />
+          <PostStatusFilter filter= {filter}
+          onFilterSelect={this.onFilterSelect} />
         </div>
         <PostList 
           posts = {visiblePosts}
