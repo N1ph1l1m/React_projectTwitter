@@ -5,7 +5,7 @@ import "./post-list.css";
 
 const PostList = ({ posts, onDelete, onToggleImportant, onToggleLiked }) => {
   const elements = posts.map((item) => {
-    const { id, ...itemProps } = item;
+    const { id, ...itemProps} = item;
     return (
       <li key={id} className="list-group-item">
         <PostListItem
