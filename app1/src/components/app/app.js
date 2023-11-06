@@ -5,8 +5,6 @@ import PostStatusFilter from "../post-status-filter";
 import PostList from "../post-list/post-list";
 import PostAddForm from "../post-add-form/post-add-form";
 
-import "./app.css";
-
 import styled from "styled-components";
 
 const AppBlock = styled.div`
@@ -19,7 +17,7 @@ export default class App extends Component {
     super(props);
     this.state = {
       data: [
-        // { label: " Going to learn React", important: true, id: "1", like: false},
+        { label: " Going to learn React", important: false, id: "1", like: false},
         // { label: "Going to home", important: false, id: "2", like: false },
         // { label: "We work", important: true, id: "3" },
         // { label: "Batman - who is", important: false, id: "4", like: false },

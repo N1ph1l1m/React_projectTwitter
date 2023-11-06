@@ -17,7 +17,7 @@ export default class PostListItem extends Component {
     }
 
     if (like) {
-      classNames += " like ";
+      classNames += "like";
     }
     return (
       <div className={classNames}>
